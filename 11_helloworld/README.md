@@ -8,12 +8,15 @@
 * 首先，我们需要安装express库。在Express3.6.x之前的版本，Express需要全局安装的，项目构建器模块是合并在Express项目中的，后来这个构建器被拆分出来，独立成为了一个项目express-generator，现在我们只需要全局安装express-generator项目就行了。
 * 全局安装express `npm install -g express-generator@4` 安装好之后就可以使用express命令。
 * 使用`express -v` 检查是否安装成功
+
 ### 创建程序
 * 使用命令`express -e 11_helloword` 生成express项目文件。
 *  接着使用`npm install` 来安装项目的依赖包，很像Java中的Maven
 *  安装完成之后，运行命令`npm start` 启动项目
-![](http://7xsy85.com2.z0.glb.clouddn.com/node_11_1.png)如图表示已经启动成功。
+![](http://7xsy85.com2.z0.glb.clouddn.com/node_11_1.png)
+如图表示已经启动成功。
 * 浏览器中运行打开[localhost](http://127.0.0.1:4000)，便可以看到Express
+
 ### 解析代码
 * **分析app.js**
 	在Express3.7这些中间件是默认集成在Express中，而目前使用的版本单独把这些中间件拿出去，更加灵活方便。
@@ -22,7 +25,7 @@
 	同样原来用于项目启动代码也被移到./bin/www的文件，www文件也是一个node的脚本，用于分离配置和启动程序。
 > 具体的使用方法自行查看代码，已给出相应详细的注释
 
-## 使用Bootstrap框架
+### 使用Bootstrap框架
 > node支持`jade` 和`ejs`模板引擎，这里我们使用`ejs`
 
 *  和常规的`html`引入方式一样，头部引入`css`,尾部引入`js`文件
