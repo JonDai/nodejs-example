@@ -9,6 +9,9 @@ var bodyParser = require('body-parser');
 // 加载路由控制
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var movie = require('./routes/movie');
+
+
 
 // 创建项目实例
 var app = express();
@@ -23,7 +26,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 // 定义数据解析器
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // 定义cookie解析器
 app.use(cookieParser());
 // 定义静态文件目录
@@ -32,6 +35,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 匹配路径和路由
 app.use('/', routes);
 app.use('/users', users);
+
+/*movie 路径匹配*/
+app.get('/movie/add',movie.movieAdd);//增加
+app.post('/movie/add',movie.doMovieAdd);//提交
+app.get('/movie/:name',movie.movieAdd);//编辑查询
+app.get('/movie/json/:name',movie.movieJSON);//JSON数据
+
 
 // 404错误处理
 app.use(function(req, res, next) {
